@@ -6,7 +6,11 @@ destination = Account.create!(id: 2, balance: 10)
 puts "Source: #{source.balance}, Destination: #{destination.balance}"
 
 # Perform
-MoneyTransfer.perform(1, 2, 30)
+require 'sidekiq/testing'
+Sidekiq::Testing.fake!
+
+MoneyTransfer.perform_async(1, 2, 30)
+MoneyTransfer.drain
 
 # Results
 source.reload

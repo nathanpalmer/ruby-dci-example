@@ -1,5 +1,6 @@
 class MoneyTransfer
   include DCI::Context
+  include Sidekiq::Worker
 
   def perform(source_id, destination_id, amount)
     source = Account.find(source_id)

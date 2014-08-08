@@ -1,4 +1,5 @@
 require 'active_record'
+require_relative 'sidekiq'
 
 # ActiveRecord::Base.logger = Logger.new(STDERR)
 

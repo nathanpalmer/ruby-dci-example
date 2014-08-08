@@ -4,4 +4,4 @@ gem "activesupport"
 gem "activerecord"
 gem "sqlite3"
 gem "casting"
-
+gem "sidekiq"
