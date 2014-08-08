@@ -1,7 +1,3 @@
-require_relative '../../models/account'
-require_relative 'roles/transferrer'
-require_relative 'roles/transferee'
-
 class MoneyTransfer
 
   def initialize(source_id, destination_id, amount)

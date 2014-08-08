@@ -1,24 +1,14 @@
-require 'active_record'
+require_relative 'environment'
 
-ActiveRecord::Base.logger = Logger.new(STDERR)
+# Load test data
+source = Account.create!(id: 1, balance: 50)
+destination = Account.create!(id: 2, balance: 10)
+puts "Source: #{source.balance}, Destination: #{destination.balance}"
 
-ActiveRecord::Base.establish_connection(
-    :adapter => "sqlite3",
-    :database => ":memory:"
-)
-
-ActiveRecord::Schema.define do
-  create_table :accounts do |table|
-    table.column :name, :string
-    table.column :balance, :integer
-  end
-end
-
-require_relative 'app/models/account'
-
-Account.create!(id: 1)
-Account.create!(id: 2)
-
-require_relative 'app/scenarios/money_transfer/scenario'
-
+# Perform
 MoneyTransfer.new(1, 2, 30).execute
+
+# Results
+source.reload
+destination.reload
+puts "Source: #{source.balance}, Destination: #{destination.balance}"
