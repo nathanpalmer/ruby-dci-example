@@ -6,7 +6,7 @@ class MoneyTransfer
     destination = Account.find(destination_id)
     amount = amount
 
-    cast source.as(Transferrer), destination.as(Transferee) do
+    characterize source.as(Transferrer), destination.as(Transferee) do
       source.transfer_to(destination, amount)
     end
 
