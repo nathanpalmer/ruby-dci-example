@@ -6,7 +6,7 @@ destination = Account.create!(id: 2, balance: 10)
 puts "Source: #{source.balance}, Destination: #{destination.balance}"
 
 # Perform
-MoneyTransfer.new(1, 2, 30).execute
+MoneyTransfer.perform(1, 2, 30)
 
 # Results
 source.reload
