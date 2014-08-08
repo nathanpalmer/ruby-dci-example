@@ -1,5 +1,5 @@
 class MoneyTransfer
-  include Scenario
+  include DCI::Context
 
   def perform(source_id, destination_id, amount)
     source = Account.find(source_id)

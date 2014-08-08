@@ -1,3 +1,3 @@
 class Account < ActiveRecord::Base
-  include Castable
+  include DCI::Data
 end
