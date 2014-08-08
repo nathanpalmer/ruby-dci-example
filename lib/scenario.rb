@@ -3,7 +3,7 @@ require 'casting'
 module Scenario
   extend ActiveSupport::Concern
 
-  def cast(*args, &block)
+  def characterize(*args, &block)
     yield
     args.each do |item|
       item.uncast

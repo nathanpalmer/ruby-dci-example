@@ -8,7 +8,7 @@ class MoneyTransfer
   end
 
   def execute
-    cast @source.as(Transferrer), @destination.as(Transferrer) do
+    characterize @source.as(Transferrer), @destination.as(Transferrer) do
       @source.transfer_to(@destination, @amount)
     end
     @source
