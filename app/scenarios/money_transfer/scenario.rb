@@ -1,4 +1,5 @@
 class MoneyTransfer
+  include Scenario
 
   def initialize(source_id, destination_id, amount)
     @source = Account.find(source_id)
@@ -7,7 +8,7 @@ class MoneyTransfer
   end
 
   def execute
-    @source.as(Transferrer) do
+    cast @source.as(Transferrer), @destination.as(Transferrer) do
       @source.transfer_to(@destination, @amount)
     end
     @source
