@@ -1,3 +1,3 @@
-module Transferree
+module Transferee
   extend ActiveSupport::Concern
 end

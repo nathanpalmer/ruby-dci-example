@@ -9,7 +9,7 @@ module Scenario
     end
   end
 
-  def characterize(*args, &block)
+  def cast(*args, &block)
     yield
     args.each do |item|
       item.uncast

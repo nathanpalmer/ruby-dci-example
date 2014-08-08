@@ -8,7 +8,6 @@ module Castable
     delegate_missing_methods
   end
 
-
   def as(role, &block)
     if block_given?
       Casting.delegating(self => role) do
